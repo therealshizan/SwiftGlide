@@ -7,7 +7,7 @@ SwiftGlide is a lightweight and easy-to-use JavaScript library for creating simp
 * Previous and next buttons for easy navigation.
 ## Demo
 Check out the live demo
-[here](https://www.google.com)
+[here]([https://www.google.com](https://therealshizan.github.io/SwiftGlide/))
 ## Getting Started
 #### Installation
 You can include SwiftGlide in your project by including the necessary HTML, CSS, and JavaScript files.
