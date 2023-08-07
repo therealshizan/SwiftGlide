@@ -57,7 +57,7 @@ const slideOptions = {
   slidesPerView: 2,
   mobileSlidesPerView: 1,
   tabletSlidesPerView: 2,
-  type: 'mousewheel'
+  // type: 'mousewheel'
 }
 
 
