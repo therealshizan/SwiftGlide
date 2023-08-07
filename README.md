@@ -6,4 +6,4 @@ SwiftGlide is a lightweight and easy-to-use JavaScript library for creating simp
 * Support for both horizontal and vertical sliders.
 * Previous and next buttons for easy navigation.
 ## Demo
-Check out the live demo [here]("http://example.com/").
+Check out the live demo [here](https://www.google.com).
