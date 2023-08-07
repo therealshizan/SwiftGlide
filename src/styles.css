@@ -8,40 +8,38 @@ body {
   font-family: sans-serif;
 }
 
-.slider {
-  width: 100%;
-  height: 100%;
-}
 
-.slider-wrap {
+.swift-glides {
   display: flex;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+  height: 50vh;
 }
 
-.slider-wrap::-webkit-scrollbar{
+.swift-glides::-webkit-scrollbar{
   display: none;
 }
 
-.slide {
+.swift-glide-slide {
   flex: 0 0 50%;
-  height: 50vh;
-  border: 1px solid;
-  padding: 1rem;
+  height: inherit;
   scroll-snap-align: start;
-  background-color: lightgreen;
-  display: grid;
-  place-content: center;
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  border: 1px solid;
 }
 
-.slider-btns {
+.swift-glide-btns {
   display: flex;
   justify-content: space-evenly;
   margin-top: 2rem;
 }
 
-.slider-btn {
+.swift-glide-btn {
   cursor: pointer;
   background: darkcyan;
   font-size: 1rem;
