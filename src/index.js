@@ -1,13 +1,17 @@
 const sliderEl = document.querySelector(".swift-glides");
+const slideOne = document.querySelector(".swift-glide-slide");
 const slides = document.querySelectorAll(".swift-glide-slide");
 const sliderPrevBtn = document.querySelector(".glide-prev-btn");
 const sliderNextBtn = document.querySelector(".glide-next-btn");
+
+console.log(slideOne)
 
 class Slider {
   constructor(sliderObj) {
     this.sliderObj = sliderObj;
     const { slides, slidesPerView, mobileSlidesPerView, tabletSlidesPerView, autoplay, autoplayInterval } =
-      sliderObj;
+    sliderObj;
+    this.slideWidth = window.innerWidth / slidesPerView
 
     // Vertical Slider
     if (this.sliderObj.type === "mousewheel") {
@@ -36,7 +40,7 @@ class Slider {
   // Next Slide
   goToNextSlide() {
     const scrollLeftOptions = {
-      left: this.sliderObj.sliderMain.scrollLeft + 640,
+      left: this.sliderObj.sliderMain.scrollLeft + this.slideWidth,
       behavior: "smooth",
     };
     this.sliderObj.sliderMain.scroll(scrollLeftOptions);
@@ -45,7 +49,7 @@ class Slider {
   // Previous Slide
   goToPrevSlide() {
     const scrollRightOptions = {
-      left: this.sliderObj.sliderMain.scrollLeft - 640,
+      left: this.sliderObj.sliderMain.scrollLeft - this.slideWidth,
       behavior: "smooth",
     };
     this.sliderObj.sliderMain.scroll(scrollRightOptions);
@@ -63,16 +67,16 @@ class Slider {
 
 // Slider Options You Can Also Direct Pass It As Argument
 const slideOptions = {
-  sliderMain: sliderEl, // Parent Slider Div
-  slides: slides, // Slider Children Div
-  prevBtn: sliderPrevBtn, // Previous Button
-  nextBtn: sliderNextBtn, // Next Button
-  slidesPerView: 2, // Slides To Show Per View
-  mobileSlidesPerView: 1, // Slides To Show Per View Mobile
-  tabletSlidesPerView: 2, // Slides To Show Per View Tablet
-  autoplay: true, // Autoplay
-  autoplayInterval: 2500 // Autoplay Interval In Milliseconds
-  // type: 'mousewheel' // Slider Position (Horizontal Or Vertical)
+  sliderMain: sliderEl,
+  slides: slides,
+  prevBtn: sliderPrevBtn,
+  nextBtn: sliderNextBtn,
+  slidesPerView: 4,
+  mobileSlidesPerView: 1,
+  tabletSlidesPerView: 2,
+  // autoplay: true,
+  autoplayInterval: 2500
+  // type: 'mousewheel'
 };
 
 // Slider Instance
