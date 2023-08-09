@@ -4,14 +4,24 @@ const slides = document.querySelectorAll(".swift-glide-slide");
 const sliderPrevBtn = document.querySelector(".glide-prev-btn");
 const sliderNextBtn = document.querySelector(".glide-next-btn");
 
-console.log(slideOne)
 
 class Slider {
   constructor(sliderObj) {
     this.sliderObj = sliderObj;
-    const { slides, slidesPerView, mobileSlidesPerView, tabletSlidesPerView, autoplay, autoplayInterval } =
+    const { slides, slidesPerView, mobileSlidesPerView, tabletSlidesPerView, autoplay, autoplayInterval, slidesToScroll } =
     sliderObj;
-    this.slideWidth = window.innerWidth / slidesPerView
+
+
+    // Media Queries
+    const tablet = window.matchMedia("(max-width: 768px)");
+    const mobile = window.matchMedia("(max-width: 576px)");
+
+    console.log(mobile)
+
+    // Slides To Scroll
+    this.slideWidth = (mobile.matches && window.innerWidth / mobileSlidesPerView) ||
+    (tablet.matches && window.innerWidth / tabletSlidesPerView) ||
+    (window.innerWidth / slidesPerView) * slidesToScroll;
 
     // Vertical Slider
     if (this.sliderObj.type === "mousewheel") {
@@ -23,9 +33,6 @@ class Slider {
     // Autoplay
     autoplay && this.autoplay(autoplayInterval);
 
-    // Media Queries
-    const tablet = window.matchMedia("(max-width: 768px)");
-    const mobile = window.matchMedia("(max-width: 576px)");
 
     // Slides Per View
     slides.forEach((slide) => {
@@ -74,7 +81,8 @@ const slideOptions = {
   slidesPerView: 4,
   mobileSlidesPerView: 1,
   tabletSlidesPerView: 2,
-  // autoplay: true,
+  slidesToScroll: 2,
+  autoplay: true,
   autoplayInterval: 2500
   // type: 'mousewheel'
 };
