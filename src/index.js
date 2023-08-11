@@ -8,20 +8,20 @@ const sliderNextBtn = document.querySelector(".glide-next-btn");
 class Slider {
   constructor(sliderObj) {
     this.sliderObj = sliderObj;
+    this.isDragging = false; // Track drag state
     const { slides, slidesPerView, mobileSlidesPerView, tabletSlidesPerView, autoplay, autoplayInterval, slidesToScroll } =
-    sliderObj;
+      sliderObj;
 
 
     // Media Queries
     const tablet = window.matchMedia("(max-width: 768px)");
     const mobile = window.matchMedia("(max-width: 576px)");
 
-    console.log(mobile)
 
     // Slides To Scroll
     this.slideWidth = (mobile.matches && window.innerWidth / mobileSlidesPerView) ||
-    (tablet.matches && window.innerWidth / tabletSlidesPerView) ||
-    (window.innerWidth / slidesPerView) * slidesToScroll;
+      (tablet.matches && window.innerWidth / tabletSlidesPerView) ||
+      (window.innerWidth / slidesPerView) * slidesToScroll;
 
     // Vertical Slider
     if (this.sliderObj.type === "mousewheel") {
@@ -42,6 +42,46 @@ class Slider {
         100 / slidesPerView;
       slide.style.flex = `0 0 ${slideSize}%`;
     });
+
+
+    // Event listeners for drag
+    this.sliderObj.sliderMain.addEventListener("mousedown", (e) => this.handleMouseDown(e));
+    window.addEventListener("mousemove", (e) => this.handleMouseMove(e));
+    window.addEventListener("mouseup", () => this.handleMouseUp());
+  }
+
+  // Handle mouse down event
+  handleMouseDown(e) {
+    this.isDragging = true;
+    this.startX = e.clientX;
+    this.scrollLeft = this.sliderObj.sliderMain.scrollLeft;
+  }
+
+  // Handle mouse move event
+  handleMouseMove(e) {
+    if (!this.isDragging) return;
+    const x = e.clientX;
+    const sliderWidth = this.sliderObj.sliderMain.offsetWidth;
+
+    // Calculate the drag distance relative to the slider width
+    const dragDistance = (this.startX - x) / sliderWidth;
+
+    // Determine the threshold for switching slides (e.g., 0.2)
+    const switchThreshold = 0.2;
+
+    if (dragDistance > switchThreshold) {
+      this.goToNextSlide(); // Dragged from right to left
+    } else if (dragDistance < -switchThreshold) {
+      this.goToPrevSlide(); // Dragged from left to right
+    }
+
+    requestAnimationFrame(() => this.handleMouseMove(e));
+  }
+
+
+  // Handle mouse up event
+  handleMouseUp() {
+    this.isDragging = false;
   }
 
   // Next Slide
@@ -64,11 +104,9 @@ class Slider {
 
   autoplay(interval) {
     console.log("Autoplay");
-    window.addEventListener("load", () => {
-      setInterval(()=>{
-        this.goToNextSlide()
-      }, interval)
-    });
+    setInterval(() => {
+      this.goToNextSlide();
+    }, interval);
   }
 }
 
@@ -82,8 +120,8 @@ const slideOptions = {
   mobileSlidesPerView: 1,
   tabletSlidesPerView: 2,
   slidesToScroll: 2,
-  autoplay: true,
-  autoplayInterval: 2500
+  // autoplay: true,
+  autoplayInterval: 2500,
   // type: 'mousewheel'
 };
 
@@ -99,3 +137,5 @@ slider.sliderObj.nextBtn?.addEventListener("click", () => {
 slider.sliderObj.prevBtn?.addEventListener("click", () => {
   slider.goToPrevSlide();
 });
+
+sliderEl.addEventListener("mousedown", (e) => e.preventDefault()); // Prevent text selection during drag
