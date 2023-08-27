@@ -4,8 +4,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<link rel="stylesheet" href="src/styles.css">
+	<title>SwiftGlide - Simple Slider Library</title>
+	<link rel="stylesheet" href="src/swiftglide.min.css">
 </head>
 
 <body>
@@ -14,34 +14,44 @@
 		<div class="swift-glide-container">
 			<div draggable="true" class="swift-glides">
 				<div class="swift-glide-slide">
-					<img src="https://images.pexels.com/photos/16898258/pexels-photo-16898258/free-photo-of-woman-holding-bouquet.jpeg" class="slide-img">
+					<img src="https://images.pexels.com/photos/16898258/pexels-photo-16898258/free-photo-of-woman-holding-bouquet.jpeg"
+						class="slide-img">
 				</div>
 				<div class="swift-glide-slide">
-					<img src="https://images.pexels.com/photos/7539498/pexels-photo-7539498.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="slide-img">
+					<img src="https://images.pexels.com/photos/7539498/pexels-photo-7539498.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+						class="slide-img">
 				</div>
 				<div class="swift-glide-slide">
-					<img src="https://images.pexels.com/photos/17719879/pexels-photo-17719879/free-photo-of-pregnant-woman-in-dress.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="slide-img">
+					<img src="https://images.pexels.com/photos/17719879/pexels-photo-17719879/free-photo-of-pregnant-woman-in-dress.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+						class="slide-img">
 				</div>
 				<div class="swift-glide-slide">
-					<img src="https://images.pexels.com/photos/17767956/pexels-photo-17767956/free-photo-of-snow-wood-dawn-landscape.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="slide-img">
+					<img src="https://images.pexels.com/photos/17767956/pexels-photo-17767956/free-photo-of-snow-wood-dawn-landscape.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+						class="slide-img">
 				</div>
 				<div class="swift-glide-slide">
-					<img src="https://images.pexels.com/photos/17760812/pexels-photo-17760812/free-photo-of-venice.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="slide-img">
+					<img src="https://images.pexels.com/photos/17760812/pexels-photo-17760812/free-photo-of-venice.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+						class="slide-img">
 				</div>
 				<div class="swift-glide-slide">
-					<img src="https://images.pexels.com/photos/17910786/pexels-photo-17910786.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="slide-img">
+					<img src="https://images.pexels.com/photos/17910786/pexels-photo-17910786.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+						class="slide-img">
 				</div>
 				<div class="swift-glide-slide">
-					<img src="https://images.pexels.com/photos/10708097/pexels-photo-10708097.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="slide-img">
+					<img src="https://images.pexels.com/photos/10708097/pexels-photo-10708097.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+						class="slide-img">
 				</div>
 				<div class="swift-glide-slide">
-					<img src="https://images.pexels.com/photos/15835442/pexels-photo-15835442/free-photo-of-mirror-decor-on-stone-building.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="slide-img">
+					<img src="https://images.pexels.com/photos/15835442/pexels-photo-15835442/free-photo-of-mirror-decor-on-stone-building.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+						class="slide-img">
 				</div>
 				<div class="swift-glide-slide">
-					<img src="https://images.pexels.com/photos/15139033/pexels-photo-15139033/free-photo-of-men-doing-a-performance-on-stage-in-black-and-white.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="slide-img">
+					<img src="https://images.pexels.com/photos/15139033/pexels-photo-15139033/free-photo-of-men-doing-a-performance-on-stage-in-black-and-white.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+						class="slide-img">
 				</div>
 				<div class="swift-glide-slide">
-					<img src="https://images.pexels.com/photos/17653272/pexels-photo-17653272/free-photo-of-parked-cars-and-man-behind-on-street-in-black-and-white.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="slide-img">
+					<img src="https://images.pexels.com/photos/17653272/pexels-photo-17653272/free-photo-of-parked-cars-and-man-behind-on-street-in-black-and-white.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+						class="slide-img">
 				</div>
 			</div>
 			<div class="swift-glide-btns">
@@ -51,7 +61,39 @@
 		</div>
 	</div>
 
-	<script src="src/index.js"></script>
+	<script src="src/swiftglide.min.js"></script>
+
+	<script>
+		// Slider Options You Can Also Direct Pass It As Argument
+		const slideOptions = {
+			sliderMain: sliderEl,
+			slides: slides,
+			prevBtn: sliderPrevBtn,
+			nextBtn: sliderNextBtn,
+			slidesPerView: 4,
+			mobileSlidesPerView: 1,
+			tabletSlidesPerView: 2,
+			slidesToScroll: 2,
+			// autoplay: true,
+			autoplayInterval: 2500,
+			// type: 'mousewheel'
+		};
+
+		// Slider Instance
+		const slider = new Slider(slideOptions);
+
+		// Next Button Event
+		slider.sliderObj.nextBtn?.addEventListener("click", () => {
+			slider.goToNextSlide();
+		});
+
+		// Previous Button Event
+		slider.sliderObj.prevBtn?.addEventListener("click", () => {
+			slider.goToPrevSlide();
+		});
+
+		sliderEl.addEventListener("mousedown", (e) => e.preventDefault()); // Prevent text selection during drag
+	</script>
 </body>
 
 </html>

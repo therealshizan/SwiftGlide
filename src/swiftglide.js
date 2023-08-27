@@ -109,33 +109,3 @@ class Slider {
     }, interval);
   }
 }
-
-// Slider Options You Can Also Direct Pass It As Argument
-const slideOptions = {
-  sliderMain: sliderEl,
-  slides: slides,
-  prevBtn: sliderPrevBtn,
-  nextBtn: sliderNextBtn,
-  slidesPerView: 4,
-  mobileSlidesPerView: 1,
-  tabletSlidesPerView: 2,
-  slidesToScroll: 2,
-  // autoplay: true,
-  autoplayInterval: 2500,
-  // type: 'mousewheel'
-};
-
-// Slider Instance
-const slider = new Slider(slideOptions);
-
-// Next Button Event
-slider.sliderObj.nextBtn?.addEventListener("click", () => {
-  slider.goToNextSlide();
-});
-
-// Previous Button Event
-slider.sliderObj.prevBtn?.addEventListener("click", () => {
-  slider.goToPrevSlide();
-});
-
-sliderEl.addEventListener("mousedown", (e) => e.preventDefault()); // Prevent text selection during drag
